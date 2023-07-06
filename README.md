@@ -39,3 +39,6 @@ pnpm build
 - **高内聚 低耦合**
 - **不要重复造轮子**（有现成的用现成的，没有现成的就找现成的，找不到现成的考虑暂时不做了，真的找不到就....（不会真找不到吧））
 
+## Anknowledgements
+
+Nuxt Template based on [vitesse-nuxt3](https://github.com/antfu/vitesse-nuxt3)
