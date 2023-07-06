@@ -1,0 +1,60 @@
+{
+  "name": "pkg-name",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@8.6.5",
+  "description": "",
+  "author": "171h <weiyidechicheng@outlook.com>",
+  "repository": "171h/pkg-name",
+  "keywords": [],
+  "scripts": {
+    "build": "pnpm build",
+    "build:core": "pnpm --filter '@pkg-name/core' build",
+    "build:docs": "pnpm --filter '@pkg-name/docs' build",
+    "build:kit": "pnpm --filter '@pkg-name/kit' build",
+    "build:ui": "pnpm --filter '@pkg-name/ui' build",
+    "dev": "pnpm --filter '@pkg-name/ui' dev",
+    "dev:core": "pnpm --filter '@pkg-name/core' dev",
+    "dev:docs": "pnpm --filter '@pkg-name/docs' dev",
+    "dev:ui": "pnpm --filter '@pkg-name/ui' dev",
+    "generate": "pnpm --filter '@pkg-name/ui' generate",
+    "cleanup": "pnpm --filter '@pkg-name/ui' cleanup",
+    "prepare": "pnpm --filter '@pkg-name/ui' postinstall",
+    "preview": "pnpm --filter '@pkg-name/ui' preview",
+    "postinstall": "pnpm --filter '@pkg-name/ui' postinstall",
+    "release": "npx changelogen@latest --release",
+    "up": "pnpm up -r --workspace",
+    "dev:pwa": "VITE_PLUGIN_PWA=true nuxi dev",
+    "start": "node .output/server/index.mjs",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "pnpm eslint .",
+    "lint:fix": "pnpm eslint . --fix",
+    "lint:root": "markdownlint ./*.md --fix",
+    "lint:docs": "markdownlint ./docs && case-police 'docs/**/*.md'",
+    "lint:docs:fix": "markdownlint ./docs --fix && case-police 'docs/**/*.md' --fix",
+    "start:generate": "npx serve .output/public",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "coverage": "vitest --coverage",
+    "test:ui": "vitest --ui"
+  },
+  "devDependencies": {
+    "@171h/log": "^2.2.0",
+    "@antfu/eslint-config": "^0.39.7",
+    "@types/node": "^20.4.0",
+    "@vitest/ui": "^0.32.4",
+    "case-police": "^0.6.1",
+    "changelogen": "^0.5.4",
+    "eslint": "^8.44.0",
+    "markdownlint-cli": "^0.35.0",
+    "typescript": "^5.1.6"
+  },
+  "pnpm": {
+    "overrides": {
+      "@pkg-name/kit": "workspace:*",
+      "@pkg-name/types": "workspace:*",
+      "@pkg-name/core": "workspace:*",
+      "@pkg-name/ui": "workspace:*"
+    }
+  }
+}
